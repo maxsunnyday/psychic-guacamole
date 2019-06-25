@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get '/rollercoasters/:id/edit', to: "rollercoasters#edit"
   # UPDATE
   patch '/rollercoasters/:id', to: "rollercoasters#update", as: "rollercoaster"
+
+  resources :riders, only: [:index, :new, :create, :edit, :update, :show]
   
 end

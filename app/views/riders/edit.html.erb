@@ -1,0 +1,28 @@
+<% if flash[:error] %>
+  <% flash[:error].each do |error_msg| %>
+    <li><%= error_msg %></li>
+  <% end %>
+<% end %>
+
+<h2>Edit <%= @rider.name %></h2>
+
+<%= form_for @rider do |f| %>
+  <div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+  <div>
+  <%= f.label :rollercoaster_id %>
+  <%= f.collection_check_boxes :rollercoaster_ids, @rollercoasters, :id, :name %>
+  <%# f.collection_select :method, collection, value shown to the params, value to the user %>
+  </div>
+  <%= f.submit %>
+<% end %>
+
+<%# form_tag("/riders/#{@rider.id}", method: "PATCH") do %>
+  <%# text_field_tag "name", @rider.name %>
+  <%# text_field_tag "location", @rider.location %>
+  <%# number_field_tag "height", @rider.height %>
+  <%# number_field_tag "length", @rider.length %>
+  <%# submit_tag "Create that new rider"%>
+<%# end %>

@@ -1,0 +1,9 @@
+<h3><%= @rider.name %></h3>
+
+<ul>
+    <% @rider.rollercoasters.each do |r| %>
+    <li><%= r.name %></li>
+    <% end %>
+</ul>
+
+<p><a href="<%= @rider.id %>/edit">Edit</a></p>

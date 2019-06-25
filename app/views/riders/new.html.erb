@@ -1,0 +1,29 @@
+<% if flash[:error] %>
+  <% flash[:error].each do |error_msg| %>
+    <li><%= error_msg %></li>
+  <% end %>
+<% end %>
+
+
+<%# REQUIRES SOMETHING FROM THE DATABASE %>
+<%= form_for @rider do |f| %>
+  <div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+  <div>
+  <%= f.label :rollercoaster_id %>
+  <%= f.collection_check_boxes :rollercoaster_ids, @rollercoasters, :id, :name %>
+  <%# f.collection_select :method, collection, value shown to the params, value to the user %>
+  </div>
+  <%= f.submit %>
+<% end %>
+
+
+<%# form_tag("/riders") do %>
+  <%# text_field_tag "name" %>
+  <%# text_field_tag "location" %>
+  <%# number_field_tag "height" %>
+  <%# number_field_tag "length" %>
+  <%# submit_tag "Create that new rider"%>
+<%# end %>
